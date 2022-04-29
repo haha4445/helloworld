@@ -1,0 +1,51 @@
+@import "./themes.scss"; // 引入上面定义的themes.scss 日间和夜间主题
+
+//遍历主题map
+
+@mixin themeify {
+
+  @each $theme-name,$theme-map in $themes {
+    $theme-map: $theme-map !global;
+
+    //这步是判断html的 自定义属性 data-theme的值  #{}是sass的插值表达式
+    //& sass嵌套里的父容器标识   @content是混合器插槽，像vue的插槽一样
+    [data-theme="#{$theme-name}"] & {
+      @content;
+    }
+  }
+}
+
+//声明一个根据Key获取颜色的function
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+//获取背景颜色
+@mixin background_color($color) {
+  @include themeify {
+    background-color: themed($color);
+  }
+}
+
+//获取字体颜色
+@mixin font_color($color) {
+  @include themeify {
+    color: themed($color);
+  }
+}
+
+//获取边框颜色
+@mixin border_color($color) {
+  @include themeify {
+    border-color: themed($color);
+  }
+}
+
+// 获取内容容器的颜色、
+@mixin content_color($color) {
+  @include themeify {
+    // 内容的背景色
+    background-color: themed($color);
+    // 还可以接着写代码、 比如透明度什么的
+  }
+}

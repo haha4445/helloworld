@@ -1,0 +1,23 @@
+$themes: ( // 日间默认 如 font_color1，font_color2 一套主题设置两种颜色，项目需要集中颜色就定义这个主题下有多少颜色
+
+  light: (font_color1:rgb(0, 153, 255),
+    font_color2: rgb(12, 12, 12),
+    background_color1: rgb(142, 140, 140),
+    background_color2: rgb(172, 172, 240),
+    border_color1: rgb(253, 4, 4),
+    border_color2: rgb(0, 255, 247),
+    content_color1:rgb(0, 0, 0),
+    content_color2:rgb(255, 255, 250),
+  ),
+
+  // 夜间暗黑
+
+  dark: (font_color2:rgb(0, 153, 255),
+  font_color1: rgb(12, 12, 12),
+  background_color2: rgb(142, 140, 140),
+  background_color1: rgb(172, 172, 240),
+  border_color2: rgb(253, 4, 4),
+  border_color1: rgb(0, 255, 247),
+  content_color2:rgb(0, 0, 0),
+  content_color1:rgb(255, 255, 250),
+));
